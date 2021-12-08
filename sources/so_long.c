@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:05:51 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/08 19:24:14 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/08 19:41:32 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	main(int argc, char **argv)
 	
 	//verificar se o mapa eh valido
 
-	//se a verificacao der certo, iniciar tela e o jogo
-
-	// senao, aparecer erro e terminar execucao
+	// se a verificacao nao der certo, aparecer erro e terminar execucao
 	
+	// senao, iniciar tela e o jogo	
 }

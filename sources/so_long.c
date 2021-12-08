@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 19:05:51 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/08 19:41:32 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/08 21:35:38 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 
 	// se a verificacao nao der certo, aparecer erro e terminar execucao
 	
-	// senao, iniciar tela e o jogo	
+	// senao, iniciar tela e o jogo
+	
 }

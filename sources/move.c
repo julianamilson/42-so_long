@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:16:25 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/08 22:27:58 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/08 23:26:37 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,39 @@
 	fizer o caminho mais curto (verificar!)
 	Obs2. Tentar animar o char!!
 */
+
+int	move() 
+{
+	if (press == 'A' || press == 'a')
+	{
+		if (posicao[atual - 1][y] != '1')
+			x--;
+		printf("Movements: %d\n", count++);
+	}
+	else if (press == 'D' || press == 'd')
+	{
+		if (posicao[atual + 1][y] != '1')
+			x++;
+		printf("Movements: %d\n", count++);
+	}
+	else if (press == 'S' || press == 's')
+	{
+		if (posicao[x][atual + 1] != '1')
+			y++;
+		printf("Movements: %d\n", count++);
+	}
+	else if (press == 'W' || press == 'w')
+	{
+		if (posicao[x][atual - 1] != '1')
+			y--;
+		printf("Movements: %d\n", count++);
+	}
+	// else if (press == ESC)
+	// { free em tudo e fecha tela }
+	
+	// else if (posicao[atual + 1 ou -1] == C)
+	// {coletar}
+	
+	// else if (posicao[atual + 1 ou -1] == E)
+	// {se tiver coletado, mensagem parabenizando, free em tudo, exit}
+}

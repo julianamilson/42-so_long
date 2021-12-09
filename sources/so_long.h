@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/08 22:27:42 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/09 00:56:10 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdio.h>
+# include <errno.h>
 # include <fcntl.h>
 
-typedef struct s_map
+typedef struct s_game
 {
 	// x;
 	// y;
@@ -28,9 +29,9 @@ typedef struct s_map
 	// collect;
 	// exit;
 	// enemy;
-} t_map;
+} t_game;
 
-typedef struct s_screen
+typedef struct s_map
 {
 	// carrot;
 	// hero;
@@ -38,7 +39,7 @@ typedef struct s_screen
 	// floor;
 	// exit;
 	// wall;	
-} t_screen;
+} t_map;
 
 # define IMG_P "../assets/img/bunny1.xpm"
 # define IMG_C "../assets/img/carrot.xpm"

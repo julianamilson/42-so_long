@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 21:07:44 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/10 01:13:14 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/10 02:28:19 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,4 @@ void	read_map(char *argv, t_game *game)
 	}
 	game->map = ft_split(temp, '\n');
 	game->col = ft_strlen(game->map[0]);
-	printf("%i\n %i\n", game->col, game->row);
 }

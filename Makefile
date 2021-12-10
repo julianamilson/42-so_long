@@ -16,13 +16,20 @@ LIBFT = ./lib/libft/libft.a
 LIBFT_PATH = ./lib/libft
 LIBFT_FLAGS = -L $(LIBFT_PATH) -lft
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 CC = gcc
 
 AR = ar rcs
 
-SRC = check_map.c move.c so_long.c map.c image.c window.c
+SRC = check_map.c \
+	image.c \
+	map.c \
+	move_player.c \
+	move.c \
+	so_long.c \
+	window.c
+
 SRC_DIR = ./sources
 SRC:= $(addprefix $(SRC_DIR)/,$(SRC))
 
@@ -38,7 +45,7 @@ $(NAME): $(LIBFT) $(OBJS)
 		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDES) $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
 
 %.o:$(SRC_DIR)%.c
-		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11 
+		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
 
 $(LIBFT):
 		make -C $(LIBFT_PATH)

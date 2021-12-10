@@ -12,6 +12,21 @@
 
 #include "../includes/so_long.h"
 
+void	free_img(t_game *game)
+{
+	mlx_clear_window(game->mlx_ptr, game->win_ptr);
+	mlx_loop_end(game->mlx_ptr);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_carrot);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_exit);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_floor);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_player);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_wall);
+	mlx_destroy_display(game->mlx_ptr);
+	free_matrix(game);
+	free(game->mlx_ptr);
+	exit(0);
+}
+
 void	start_img(t_game *game)
 {
 	game->img.i_wall = mlx_xpm_file_to_image(game->mlx_ptr, IMG_W, &game->img.height, &game->img.width);
@@ -25,7 +40,7 @@ int	render_img(t_game *game)
 {
 	int line;
 	int	col;
-	
+
 	start_img(game);
 	line = 0;
 	while (game->map[line])
@@ -42,10 +57,10 @@ int	render_img(t_game *game)
 			if (game->map[line][col] == 'E')
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_exit, col * 32, line * 32);
 			if (game->map[line][col] == 'C')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_carrot, col * 32, line * 32);	
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_carrot, col * 32, line * 32);
 			col++;
 		}
 		line++;
 	}
-	return (0);	
+	return (0);
 }

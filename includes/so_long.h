@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/10 01:28:52 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/10 19:41:10 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
+
+# define KEY_W 'w'
+# define KEY_A 'a'
+# define KEY_S 's'
+# define KEY_D 'd'
+# define KEY_ESC 0xff1b
 
 typedef struct s_img
 {
@@ -61,6 +67,9 @@ void	valid_matrix(t_game *game);
 void	start_win(t_game *game);
 void	start_img(t_game *game);
 int		render_img(t_game *game);
+int	which_key(int pressed_key, t_game *game);
+void	free_matrix(t_game *game);
+void	free_img(t_game *game);
 /*
 typedef struct s_game
 {
@@ -80,7 +89,7 @@ typedef struct s_map
 	// enemy;
 	// floor;
 	// exit;
-	// wall;	
+	// wall;
 } t_map;
 
 

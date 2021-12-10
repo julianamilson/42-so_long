@@ -36,21 +36,10 @@ int	main(int argc, char **argv)
 	valid_matrix(&game);
 	if (game.mlx_ptr == NULL)
 		exit(42);
-	if (game.win_ptr == NULL)
-	{
-		free(game.win_ptr);
-		exit(42);
-	}
 	start_win(&game);
 	start_img(&game);
 	mlx_loop_hook(game.mlx_ptr, render_img, &game);
+	mlx_hook(game.win_ptr, 02, 1L<<0, which_key, &game);
 	mlx_loop(game.mlx_ptr);
-	mlx_destroy_window(game.mlx_ptr, game.win_ptr);
-	mlx_destroy_display(game.mlx_ptr);
-	free(game.mlx_ptr);
 	return (0);
-	//argc eh o .so_long enquanto o outro argumento eh referente ao mapa
-	//verificar se o mapa eh valido
-	// se a verificacao nao der certo, aparecer erro e terminar execucao
-	// senao, iniciar tela e o jogo	
 }

@@ -12,9 +12,29 @@
 
 #include "../includes/so_long.h"
 
+int	which_key(int pressed_key, t_game *game)
+{
+	int	col;
+	int	line;
+
+	col = game->p_x;
+	line = game->p_y;
+	if (pressed_key == KEY_A)
+		col--;
+	else if (pressed_key == KEY_W)
+		line--;
+	else if (pressed_key == KEY_S)
+		line++;
+	else if (pressed_key == KEY_D)
+		col++;
+	else if (pressed_key == KEY_ESC)
+		free_img(game);
+	return (0);
+}
+
 /*
 	1. W, A, S e D movimentam o char
-	
+
 	2. Nao pode atravessar paredes (kkkkk)
 
 	3. Sumir quando encostar em inimigo (aparecer game over), sumir na posição
@@ -27,7 +47,7 @@
 	Obs2. Tentar animar o char!!
 */
 
-// int	move() 
+// int	move()
 // {
 // 	if (press == 'A' || press == 'a')
 // 	{
@@ -55,10 +75,10 @@
 // 	}
 // 	// else if (press == ESC)
 // 	// { free em tudo e fecha tela }
-	
+
 // 	// else if (posicao[atual + 1 ou -1] == C)
 // 	// {coletar}
-	
+
 // 	// else if (posicao[atual + 1 ou -1] == E)
 // 	// {se tiver coletado, mensagem parabenizando, free em tudo, exit}
 // }

@@ -29,16 +29,41 @@ void	free_img(t_game *game)
 
 void	start_img(t_game *game)
 {
-	game->img.i_wall = mlx_xpm_file_to_image(game->mlx_ptr, IMG_W, &game->img.height, &game->img.width);
-	game->img.i_player = mlx_xpm_file_to_image(game->mlx_ptr, IMG_P, &game->img.height, &game->img.width);
-	game->img.i_floor = mlx_xpm_file_to_image(game->mlx_ptr, IMG_S, &game->img.height, &game->img.width);
-	game->img.i_exit = mlx_xpm_file_to_image(game->mlx_ptr, IMG_E, &game->img.height, &game->img.width);
-	game->img.i_carrot = mlx_xpm_file_to_image(game->mlx_ptr, IMG_C, &game->img.height, &game->img.width);
+	game->img.i_wall = mlx_xpm_file_to_image(game->mlx_ptr, IMG_W,
+			&game->img.height, &game->img.width);
+	game->img.i_player = mlx_xpm_file_to_image(game->mlx_ptr, IMG_P,
+			&game->img.height, &game->img.width);
+	game->img.i_floor = mlx_xpm_file_to_image(game->mlx_ptr, IMG_S,
+			&game->img.height, &game->img.width);
+	game->img.i_exit = mlx_xpm_file_to_image(game->mlx_ptr, IMG_E,
+			&game->img.height, &game->img.width);
+	game->img.i_carrot = mlx_xpm_file_to_image(game->mlx_ptr, IMG_C,
+			&game->img.height, &game->img.width);
+}
+
+static int	verify_key(int line, int col, char c, t_game *game)
+{
+	if (c == '1')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_wall, col * 32, line * 32);
+	if (c == '0')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_floor, col * 32, line * 32);
+	if (c == 'P')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_player, col * 32, line * 32);
+	if (c == 'E')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_exit, col * 32, line * 32);
+	if (c == 'C')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_carrot, col * 32, line * 32);
+	return (0);
 }
 
 int	render_img(t_game *game)
 {
-	int line;
+	int	line;
 	int	col;
 
 	start_img(game);
@@ -48,16 +73,7 @@ int	render_img(t_game *game)
 		col = 0;
 		while (game->map[line][col])
 		{
-			if (game->map[line][col] == '1')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_wall, col * 32, line * 32);
-			if (game->map[line][col] == '0')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_floor, col * 32, line * 32);
-			if (game->map[line][col] == 'P')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_player, col * 32, line * 32);
-			if (game->map[line][col] == 'E')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_exit, col * 32, line * 32);
-			if (game->map[line][col] == 'C')
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_carrot, col * 32, line * 32);
+			verify_key(line, col, game->map[line][col], game);
 			col++;
 		}
 		line++;

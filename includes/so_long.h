@@ -43,7 +43,7 @@ typedef struct s_img
 	void	*i_exit;
 	int		height;
 	int		width;
-} t_img;
+}	t_img;
 
 typedef struct s_game
 {
@@ -58,7 +58,7 @@ typedef struct s_game
 	int		player;
 	int		p_y;
 	int		p_x;
-} t_game;
+}	t_game;
 
 void	read_map(char *argv, t_game *game);
 void	move_map(t_game *game);
@@ -67,35 +67,8 @@ void	valid_matrix(t_game *game);
 void	start_win(t_game *game);
 void	start_img(t_game *game);
 int		render_img(t_game *game);
-int	which_key(int pressed_key, t_game *game);
+int		which_key(int pressed_key, t_game *game);
 void	free_matrix(t_game *game);
 void	free_img(t_game *game);
-/*
-typedef struct s_game
-{
-	// x;
-	// y;
-	// count;
-	// hero;
-	// collect;
-	// exit;
-	// enemy;
-} t_game;
 
-typedef struct s_map
-{
-	// carrot;
-	// hero;
-	// enemy;
-	// floor;
-	// exit;
-	// wall;
-} t_map;
-
-
-	// check_map();
-	// exit();
-	// move();
-	// free_mem();
-*/
 #endif

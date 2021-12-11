@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	start_win(&game);
 	start_img(&game);
 	mlx_loop_hook(game.mlx_ptr, render_img, &game);
-	mlx_hook(game.win_ptr, 02, 1L<<0, which_key, &game);
+	mlx_hook(game.win_ptr, 02, 1L << 0, which_key, &game);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }

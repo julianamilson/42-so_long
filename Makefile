@@ -25,7 +25,6 @@ AR = ar rcs
 SRC = check_map.c \
 	image.c \
 	map.c \
-	move_player.c \
 	move.c \
 	so_long.c \
 	window.c

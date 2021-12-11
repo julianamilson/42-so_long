@@ -12,7 +12,8 @@
 
 #include "../includes/so_long.h"
 
-void	start_win(t_game *game)	
+void	start_win(t_game *game)
 {
-	game->win_ptr = mlx_new_window(game->mlx_ptr, game->col * 32, game->row * 32, "so_long");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->col * 32,
+			game->row * 32, "Harry no uchi");
 }

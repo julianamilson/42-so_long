@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	message_exit(char *s, t_game *game)
 {
@@ -49,8 +49,7 @@ void	valid_matrix(t_game *game)
 
 	col = 0;
 	line = 0;
-	size = 0;
-	size = ft_strlen(game->map[0]);
+	size = game->col;
 	while (game->map[line] != 0)
 	{
 		col = ft_strlen(game->map[line]);
@@ -77,7 +76,7 @@ void	valid_char(t_game *game, char c, int line, int col)
 		game->p_x = line;
 		game->p_y = col;
 	}
-	else if (c == '1' || c == '0')
+	else if (c == '1' || c == '0' || c == 'V')
 		return ;
 	else
 	{

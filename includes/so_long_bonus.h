@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../lib/libft/libft.h"
 # include <mlx.h>
@@ -22,11 +22,13 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-# define IMG_P "./assets/img/bunny1.xpm"
+# define IMG_PR "./assets/img/bunny1.xpm"
+# define IMG_PL "./assets/img/bunny.xpm"
 # define IMG_C "./assets/img/carrot.xpm"
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
+# define IMG_V "./assets/img/bunnyb.xpm"
 
 # define KEY_W 'w'
 # define KEY_A 'a'
@@ -37,10 +39,12 @@
 typedef struct s_img
 {
 	void	*i_carrot;
-	void	*i_player;
+	void	*i_pr;
+	void	*i_pl;
 	void	*i_floor;
 	void	*i_wall;
 	void	*i_exit;
+	void	*i_v;
 	int		height;
 	int		width;
 }	t_img;
@@ -51,6 +55,7 @@ typedef struct s_game
 	void	*mlx_ptr;
 	void	*win_ptr;
 	char	**map;
+	int		side;
 	int		row;
 	int		col;
 	int		exit;

@@ -22,6 +22,7 @@ void	init_function(t_game *game)
 	game->row = 0;
 	game->col = 0;
 	game->end_game = 0;
+	game->move = 1;
 }
 
 int	main(int argc, char **argv)

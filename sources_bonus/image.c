@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	free_img(t_game *game)
 {
@@ -19,7 +19,9 @@ int	free_img(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->img.i_carrot);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_exit);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_floor);
-	mlx_destroy_image(game->mlx_ptr, game->img.i_player);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_pl);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_pr);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_v);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_wall);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
@@ -33,7 +35,11 @@ void	start_img(t_game *game)
 {
 	game->img.i_wall = mlx_xpm_file_to_image(game->mlx_ptr, IMG_W,
 			&game->img.height, &game->img.width);
-	game->img.i_player = mlx_xpm_file_to_image(game->mlx_ptr, IMG_P,
+	game->img.i_pl = mlx_xpm_file_to_image(game->mlx_ptr, IMG_PL,
+			&game->img.height, &game->img.width);
+	game->img.i_pr = mlx_xpm_file_to_image(game->mlx_ptr, IMG_PR,
+			&game->img.height, &game->img.width);
+	game->img.i_v = mlx_xpm_file_to_image(game->mlx_ptr, IMG_V,
 			&game->img.height, &game->img.width);
 	game->img.i_floor = mlx_xpm_file_to_image(game->mlx_ptr, IMG_S,
 			&game->img.height, &game->img.width);
@@ -43,7 +49,16 @@ void	start_img(t_game *game)
 			&game->img.height, &game->img.width);
 }
 
-static int	verify_key(int line, int col, char c, t_game *game)
+void	side_player(t_game *game, int line, int col)
+{
+	if (game->side == KEY_A)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pl, col * 32, line * 32);
+	else if (game->side == KEY_D)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pr, col * 32, line * 32);
+
+}
+
+static void	verify_key(int line, int col, char c, t_game *game)
 {
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
@@ -52,15 +67,16 @@ static int	verify_key(int line, int col, char c, t_game *game)
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->img.i_floor, col * 32, line * 32);
 	if (c == 'P')
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->img.i_player, col * 32, line * 32);
+		side_player(game, line, col);
 	if (c == 'E')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->img.i_exit, col * 32, line * 32);
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->img.i_carrot, col * 32, line * 32);
-	return (0);
+	if (c == 'V')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_v, col * 32, line * 32);
 }
 
 int	render_img(t_game *game)

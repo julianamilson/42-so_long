@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	init_function(t_game *game)
 {
@@ -22,6 +22,8 @@ void	init_function(t_game *game)
 	game->row = 0;
 	game->col = 0;
 	game->end_game = 0;
+	game->side = KEY_D;
+	game->move = 1;
 }
 
 int	main(int argc, char **argv)

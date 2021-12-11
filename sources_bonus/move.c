@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	valid_move(t_game *game, int col, int line, int pressed_key)
 {
@@ -59,13 +59,19 @@ int	which_key(int pressed_key, t_game *game)
 	col = game->p_y;
 	line = game->p_x;
 	if (pressed_key == KEY_A)
+	{
+		game->side = KEY_A;
 		col--;
+	}
 	else if (pressed_key == KEY_W)
 		line--;
 	else if (pressed_key == KEY_S)
 		line++;
 	else if (pressed_key == KEY_D)
+	{
+		game->side = KEY_D;
 		col++;
+	}
 	else if (pressed_key == KEY_ESC)
 		free_img(game);
 	if (game->end_game != 1)

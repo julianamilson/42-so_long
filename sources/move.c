@@ -48,6 +48,7 @@ void	move(t_game *game, int col, int line, int pressed_key)
 		game->p_y = col;
 		game->p_x = line;
 		game->map[line][col] = 'P';
+		printf("moves: %d\n", game->move++);
 	}
 }
 

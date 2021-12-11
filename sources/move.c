@@ -22,6 +22,7 @@ int	valid_move(t_game *game, int col, int line, int pressed_key)
 	{
 		game->end_game = 1;
 		game->map[game->p_x][game->p_y] = '0';
+		printf("You did it!! =DD\n");
 		return (-1);
 	}
 	else if (game->map[line][col] == 'E')

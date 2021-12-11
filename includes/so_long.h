@@ -63,7 +63,7 @@ typedef struct s_game
 }	t_game;
 
 void	open_map(char *argv, t_game *game);
-void	move_map(t_game *game);
+void	valid_map(t_game *game);
 void	valid_char(t_game *game, char c, int line, int col);
 void	valid_matrix(t_game *game);
 void	start_win(t_game *game);

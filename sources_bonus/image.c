@@ -52,13 +52,14 @@ void	start_img(t_game *game)
 void	side_player(t_game *game, int line, int col)
 {
 	if (game->side == KEY_A)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pl, col * 32, line * 32);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pl,
+			col * 32, line * 32);
 	else if (game->side == KEY_D)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pr, col * 32, line * 32);
-
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pr,
+			col * 32, line * 32);
 }
 
-static void	verify_key(int line, int col, char c, t_game *game)
+static void	verify_char(int line, int col, char c, t_game *game)
 {
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
@@ -81,8 +82,9 @@ static void	verify_key(int line, int col, char c, t_game *game)
 
 int	render_img(t_game *game)
 {
-	int	line;
-	int	col;
+	char	*move;
+	int		line;
+	int		col;
 
 	line = 0;
 	while (game->map[line])
@@ -90,10 +92,15 @@ int	render_img(t_game *game)
 		col = 0;
 		while (game->map[line][col])
 		{
-			verify_key(line, col, game->map[line][col], game);
+			verify_char(line, col, game->map[line][col], game);
 			col++;
 		}
 		line++;
 	}
+	move = ft_itoa(game->move);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 10, 0xF0F8FF,
+		"Movements: ");
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 100, 10, 0xF0F8FF, move);
+	free(move);
 	return (0);
 }

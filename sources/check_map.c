@@ -40,7 +40,6 @@ void	valid_walls(t_game *game)
 	}
 }
 
-
 void	valid_matrix(t_game *game)
 {
 	int	col;
@@ -85,7 +84,7 @@ void	valid_char(t_game *game, char c, int line, int col)
 	}
 }
 
-void	move_map(t_game *game)
+void	valid_map(t_game *game)
 {
 	int	line;
 	int	col;

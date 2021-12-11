@@ -22,13 +22,14 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-# define IMG_PR "./assets/img/bunny1.xpm"
 # define IMG_PL "./assets/img/bunny.xpm"
+# define IMG_PR "./assets/img/bunny1.xpm"
 # define IMG_C "./assets/img/carrot.xpm"
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
-# define IMG_V "./assets/img/bunnyb.xpm"
+# define IMG_VL "./assets/img/v.xpm"
+# define IMG_V "./assets/img/v1.xpm"
 
 # define KEY_W 'w'
 # define KEY_A 'a'
@@ -68,7 +69,7 @@ typedef struct s_game
 }	t_game;
 
 void	open_map(char *argv, t_game *game);
-void	move_map(t_game *game);
+void	valid_map(t_game *game);
 void	valid_char(t_game *game, char c, int line, int col);
 void	valid_matrix(t_game *game);
 void	start_win(t_game *game);

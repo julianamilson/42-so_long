@@ -12,13 +12,6 @@
 
 #include "../includes/so_long_bonus.h"
 
-void	message_exit(char *s, t_game *game)
-{
-	printf("%s\n", s);
-	free_matrix(game);
-	exit(0);
-}
-
 void	valid_walls(t_game *game)
 {
 	int	i;
@@ -39,7 +32,6 @@ void	valid_walls(t_game *game)
 		i++;
 	}
 }
-
 
 void	valid_matrix(t_game *game)
 {
@@ -65,9 +57,7 @@ void	valid_matrix(t_game *game)
 void	valid_char(t_game *game, char c, int line, int col)
 {
 	if (c == 'C')
-	{
 		game->score++;
-	}
 	else if (c == 'E')
 		game->exit++;
 	else if (c == 'P')
@@ -79,12 +69,10 @@ void	valid_char(t_game *game, char c, int line, int col)
 	else if (c == '1' || c == '0' || c == 'V')
 		return ;
 	else
-	{
 		message_exit("Invalid map: there are invalid characters.", game);
-	}
 }
 
-void	move_map(t_game *game)
+void	valid_map(t_game *game)
 {
 	int	line;
 	int	col;
@@ -101,7 +89,5 @@ void	move_map(t_game *game)
 		line++;
 	}
 	if (game->score == 0 || game->exit == 0 || game->player != 1)
-	{
 		message_exit("Invalid map: there's characters missing.", game);
-	}
 }

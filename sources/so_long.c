@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	open_map(argv[1], &game);
-	move_map(&game);
+	valid_map(&game);
 	valid_matrix(&game);
 	game.mlx_ptr = mlx_init();
 	start_win(&game);

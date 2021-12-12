@@ -12,7 +12,7 @@
 
 #include "../includes/so_long_bonus.h"
 
-int	end_game(t_game *game)
+static int	end_game(t_game *game)
 {
 	if (game->end_game == 1)
 		printf("You did it!! =DDD\n");
@@ -22,7 +22,7 @@ int	end_game(t_game *game)
 	return (-1);
 }
 
-int	valid_move(t_game *game, int col, int line, int pressed_key)
+static int	valid_move(t_game *game, int col, int line, int pressed_key)
 {
 	if (game->map[line][col] == '1')
 		return (-1);
@@ -47,7 +47,7 @@ int	valid_move(t_game *game, int col, int line, int pressed_key)
 		return (1);
 }
 
-void	move(t_game *game, int col, int line, int pressed_key)
+static void	move(t_game *game, int col, int line, int pressed_key)
 {
 	int	valid;
 	int	tcol;

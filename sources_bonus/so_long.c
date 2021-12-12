@@ -12,7 +12,7 @@
 
 #include "../includes/so_long_bonus.h"
 
-void	init_function(t_game *game)
+static void	init_function(t_game *game)
 {
 	game->p_x = 0;
 	game->p_y = 0;

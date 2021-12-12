@@ -12,6 +12,13 @@
 
 #include "../includes/so_long_bonus.h"
 
+void	message_exit(char *s, t_game *game)
+{
+	printf("%s\n", s);
+	free_matrix(game);
+	exit(0);
+}
+
 void	valid_walls(t_game *game)
 {
 	int	i;
@@ -88,6 +95,14 @@ void	valid_map(t_game *game)
 		}
 		line++;
 	}
-	if (game->score == 0 || game->exit == 0 || game->player != 1)
-		message_exit("Invalid map: there's characters missing.", game);
+	if (game->score == 0)
+		message_exit("Invalid map: there's no collectables. (C)\n", game);
+	else if (game->exit == 0)
+		message_exit("Invalid map: there's no exit.\n", game);
+	else if (game->exit > 1)
+		message_exit("Invalid map: there's more than one exit. (E)\n", game);
+	else if (game->player == 0)
+		message_exit("Invalid map: there's no player. (P)\n", game);
+	else if (game->player > 1)
+		message_exit("Invalid map: there's more than one player. (P)\n", game);
 }

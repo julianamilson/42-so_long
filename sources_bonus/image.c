@@ -49,7 +49,7 @@ void	start_img(t_game *game)
 			&game->img.height, &game->img.width);
 }
 
-void	side_player(t_game *game, int line, int col)
+static void	side_player(t_game *game, int line, int col)
 {
 	if (game->side == KEY_A)
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img.i_pl,

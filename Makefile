@@ -34,7 +34,6 @@ SRC = check_map.c \
 SRC_BONUS = check_map.c \
 	image.c \
 	map.c \
-	messages.c \
 	move.c \
 	so_long.c \
 	window.c

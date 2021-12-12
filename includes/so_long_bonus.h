@@ -28,8 +28,7 @@
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
-# define IMG_VL "./assets/img/v.xpm"
-# define IMG_V "./assets/img/v1.xpm"
+# define IMG_V "./assets/img/v.xpm"
 
 # define KEY_W 'w'
 # define KEY_A 'a'
@@ -79,5 +78,6 @@ int		which_key(int pressed_key, t_game *game);
 void	free_matrix(t_game *game);
 int		free_img(t_game *game);
 void	message_exit(char *s, t_game *game);
+void	message_elements(int element, t_game *game);
 
 #endif

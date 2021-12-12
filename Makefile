@@ -30,11 +30,11 @@ SRC = check_map.c \
 	move.c \
 	so_long.c
 
-SRC_BONUS = check_map.c \
-	image.c \
-	map.c \
-	move.c \
-	so_long.c
+SRC_BONUS = check_map_bonus.c \
+	image_bonus.c \
+	map_bonus.c \
+	move_bonus.c \
+	so_long_bonus.c
 
 SRC_DIR = ./sources
 SRC:= $(addprefix $(SRC_DIR)/,$(SRC))

@@ -14,12 +14,12 @@
 
 void	message_exit(char *s, t_game *game)
 {
-	printf("%s\n", s);
+	printf("Error\n%s\n", s);
 	free_matrix(game);
-	exit(0);
+	exit(42);
 }
 
-void	valid_walls(t_game *game)
+static void	valid_walls(t_game *game)
 {
 	int	i;
 	int	c;
@@ -31,9 +31,9 @@ void	valid_walls(t_game *game)
 		while (game->map[i][c])
 		{
 			if (game->map[0][c] != '1' || game->map[game->row - 1][c] != '1')
-				message_exit("Invalid map: you need more walls.", game);
+				message_exit("Surround your map with walls!", game);
 			if (game->map[i][0] != '1' || game->map[i][game->col - 1] != '1')
-				message_exit("Invalid map: you need more walls.", game);
+				message_exit("Surround your map with walls!", game);
 			c++;
 		}
 		i++;
@@ -54,20 +54,16 @@ void	valid_matrix(t_game *game)
 	{
 		col = ft_strlen(game->map[line]);
 		if (col != size)
-			message_exit("Invalid map: your map is not rectangular.", game);
+			message_exit("Your map is not rectangular!", game);
 		line++;
 	}
-	if (line == col)
-		message_exit("Invalid map: your map is a square.", game);
 	valid_walls (game);
 }
 
-void	valid_char(t_game *game, char c, int line, int col)
+static void	valid_char(t_game *game, char c, int line, int col)
 {
 	if (c == 'C')
-	{
 		game->score++;
-	}
 	else if (c == 'E')
 		game->exit++;
 	else if (c == 'P')
@@ -79,9 +75,7 @@ void	valid_char(t_game *game, char c, int line, int col)
 	else if (c == '1' || c == '0')
 		return ;
 	else
-	{
-		message_exit("Invalid map: there are invalid characters.", game);
-	}
+		message_exit("Allowed characters: 1, 0, C, E, P, V", game);
 }
 
 void	valid_map(t_game *game)
@@ -100,8 +94,14 @@ void	valid_map(t_game *game)
 		}
 		line++;
 	}
-	if (game->score == 0 || game->exit == 0 || game->player != 1)
-	{
-		message_exit("Invalid map: there's characters missing.", game);
-	}
+	if (game->score == 0)
+		message_exit("There's no collectables. (C)", game);
+	else if (game->exit == 0)
+		message_exit("There's no exit. (E)\n", game);
+	else if (game->exit > 1)
+		message_exit("You just need one exit per map. (E)", game);
+	else if (game->player == 0)
+		message_exit("There's no player. (P)", game);
+	else if (game->player > 1)
+		message_exit("You just need one player per map. (P)", game);
 }

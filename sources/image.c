@@ -25,7 +25,7 @@ int	free_img(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 	free_matrix(game);
 	free(game->mlx_ptr);
-	exit(0);
+	exit(3);
 	return (0);
 }
 
@@ -43,7 +43,7 @@ void	start_img(t_game *game)
 			&game->img.height, &game->img.width);
 }
 
-static int	verify_key(int line, int col, char c, t_game *game)
+static int	verify_char(int line, int col, char c, t_game *game)
 {
 	if (c == '1')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
@@ -74,7 +74,7 @@ int	render_img(t_game *game)
 		col = 0;
 		while (game->map[line][col])
 		{
-			verify_key(line, col, game->map[line][col], game);
+			verify_char(line, col, game->map[line][col], game);
 			col++;
 		}
 		line++;

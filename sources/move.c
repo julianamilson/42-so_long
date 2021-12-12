@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-int	valid_move(t_game *game, int col, int line, int pressed_key)
+static int	valid_move(t_game *game, int col, int line, int pressed_key)
 {
 	if (game->map[line][col] == '1')
 		return (-1);
@@ -22,7 +22,7 @@ int	valid_move(t_game *game, int col, int line, int pressed_key)
 	{
 		game->end_game = 1;
 		game->map[game->p_x][game->p_y] = '0';
-		printf("You did it!! =DD\n");
+		printf("\n\nYOU WIN!!\nIt was fun! Welcome back home!! ~(n v n )~\n\n");
 		return (-1);
 	}
 	else if (game->map[line][col] == 'E')
@@ -34,7 +34,7 @@ int	valid_move(t_game *game, int col, int line, int pressed_key)
 		return (1);
 }
 
-void	move(t_game *game, int col, int line, int pressed_key)
+static void	move(t_game *game, int col, int line, int pressed_key)
 {
 	int	valid;
 	int	tcol;
@@ -49,7 +49,7 @@ void	move(t_game *game, int col, int line, int pressed_key)
 		game->p_y = col;
 		game->p_x = line;
 		game->map[line][col] = 'P';
-		printf("moves: %d\n", game->move++);
+		printf("Movements: %d\n", game->move++);
 	}
 }
 
@@ -74,53 +74,3 @@ int	which_key(int pressed_key, t_game *game)
 		move (game, col, line, pressed_key);
 	return (0);
 }
-
-/*
-	1. W, A, S e D movimentam o char
-
-	2. Nao pode atravessar paredes (kkkkk)
-
-	3. Sumir quando encostar em inimigo (aparecer game over), sumir na posição
-	da porta (you did it!)
-
-	4. mostrar quantidade de movimentos.
-
-	Obs. do que entendi, soh ganha o jogo se coletar todos os itens.
-	Obs2. Tentar animar o char!!
-*/
-
-// int	move()
-// {
-// 	if (press == 'A' || press == 'a')
-// 	{
-// 		if (posicao[atual - 1][y] != '1')
-// 			x--;
-// 		printf("Movements: %d\n", count++);
-// 	}
-// 	else if (press == 'D' || press == 'd')
-// 	{
-// 		if (posicao[atual + 1][y] != '1')
-// 			x++;
-// 		printf("Movements: %d\n", count++);
-// 	}
-// 	else if (press == 'S' || press == 's')
-// 	{
-// 		if (posicao[x][atual + 1] != '1')
-// 			y++;
-// 		printf("Movements: %d\n", count++);
-// 	}
-// 	else if (press == 'W' || press == 'w')
-// 	{
-// 		if (posicao[x][atual - 1] != '1')
-// 			y--;
-// 		printf("Movements: %d\n", count++);
-// 	}
-// 	// else if (press == ESC)
-// 	// { free em tudo e fecha tela }
-
-// 	// else if (posicao[atual + 1 ou -1] == C)
-// 	// {coletar}
-
-// 	// else if (posicao[atual + 1 ou -1] == E)
-// 	// {se tiver coletado, mensagem parabenizando, free em tudo, exit}
-// }

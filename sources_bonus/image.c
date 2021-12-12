@@ -27,7 +27,7 @@ int	free_img(t_game *game)
 	mlx_destroy_display(game->mlx_ptr);
 	free_matrix(game);
 	free(game->mlx_ptr);
-	exit(0);
+	exit(3);
 	return (0);
 }
 
@@ -98,7 +98,7 @@ int	render_img(t_game *game)
 		line++;
 	}
 	move = ft_itoa(game->move);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 10, 0xF0F8FF,
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 20, 10, 0xF0F8FF,
 		"Movements: ");
 	mlx_string_put(game->mlx_ptr, game->win_ptr, 100, 10, 0xF0F8FF, move);
 	free(move);

@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-void	init_function(t_game *game)
+static void	init_function(t_game *game)
 {
 	game->p_x = 0;
 	game->p_y = 0;
@@ -25,13 +25,27 @@ void	init_function(t_game *game)
 	game->move = 1;
 }
 
+void	start_win(t_game *game)
+{
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->col * 32,
+			game->row * 32, "The way back home");
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	init_function(&game);
 	if (argc != 2)
-		return (0);
+	{
+		printf("Error\nInvalid number of arguments.\n\n");
+		exit(1);
+	}
+	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == 0)
+	{
+		printf("Error\nYou must use a '.ber' file.\n\n");
+		exit(2);
+	}
+	init_function(&game);
 	open_map(argv[1], &game);
 	valid_map(&game);
 	valid_matrix(&game);

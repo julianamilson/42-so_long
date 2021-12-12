@@ -64,9 +64,7 @@ typedef struct s_game
 
 void	open_map(char *argv, t_game *game);
 void	valid_map(t_game *game);
-void	valid_char(t_game *game, char c, int line, int col);
 void	valid_matrix(t_game *game);
-void	start_win(t_game *game);
 void	start_img(t_game *game);
 int		render_img(t_game *game);
 int		which_key(int pressed_key, t_game *game);

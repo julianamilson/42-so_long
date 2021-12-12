@@ -12,12 +12,15 @@
 
 #include "../includes/so_long_bonus.h"
 
-static int	end_game(t_game *game)
+int	end_game(t_game *game)
 {
 	if (game->end_game == 1)
-		printf("You did it!! =DDD\n");
+		printf("\n\nYOU WIN!!\nIt was fun! Welcome back home!! ~(n v n )~\n\n");
 	if (game->end_game == -1)
-		printf("Oh, no! Poor bunny!! T-T\n");
+	{
+		printf("\n\nYOU LOSE!\nOh, no! Poor bunny!! ( T ^ T)\n\n");
+		game->end_game = 1;
+	}
 	game->map[game->p_x][game->p_y] = '0';
 	return (-1);
 }

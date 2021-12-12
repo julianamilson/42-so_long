@@ -93,6 +93,6 @@ int	which_key(int pressed_key, t_game *game)
 	else if (pressed_key == KEY_ESC)
 		free_img(game);
 	if (game->end_game != 1)
-		move (game, col, line, pressed_key);
+		move(game, col, line, pressed_key);
 	return (0);
 }

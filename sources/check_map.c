@@ -14,7 +14,7 @@
 
 void	message_exit(char *s, t_game *game)
 {
-	printf("Error\n%s\n", s);
+	printf("Error\n%s\n\n", s);
 	free_matrix(game);
 	exit(42);
 }
@@ -75,7 +75,7 @@ static void	valid_char(t_game *game, char c, int line, int col)
 	else if (c == '1' || c == '0')
 		return ;
 	else
-		message_exit("Allowed characters: 1, 0, C, E, P, V", game);
+		message_exit("Allowed characters: 1, 0, C, E, P", game);
 }
 
 void	valid_map(t_game *game)
@@ -97,7 +97,7 @@ void	valid_map(t_game *game)
 	if (game->score == 0)
 		message_exit("There's no collectables. (C)", game);
 	else if (game->exit == 0)
-		message_exit("There's no exit. (E)\n", game);
+		message_exit("There's no exit. (E)", game);
 	else if (game->exit > 1)
 		message_exit("You just need one exit per map. (E)", game);
 	else if (game->player == 0)

@@ -33,7 +33,10 @@ void	open_map(char *argv, t_game *game)
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return ;
+	{
+		printf("Error\nThis file doesn't exists.\n\n");
+		exit(4);
+	}
 	temp = ft_strdup("");
 	while (1)
 	{

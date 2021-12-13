@@ -6,14 +6,14 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/10 19:41:10 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:19:31 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../lib/libft/libft.h"
+# include "../libft/libft.h"
 # include <mlx.h>
 # include <unistd.h>
 # include <stdio.h>

@@ -6,7 +6,7 @@
 #    By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 20:30:07 by jmilson-          #+#    #+#              #
-#    Updated: 2021/12/09 23:33:05 by jmilson-         ###   ########.fr        #
+#    Updated: 2021/12/13 16:18:51 by jmilson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,13 @@ NAME = so_long
 NAME_BONUS = so_long_bonus
 
 
-LIBFT = ./lib/libft/libft.a
-LIBFT_PATH = ./lib/libft
+LIBFT = libft/libft.a
+LIBFT_PATH = libft
 LIBFT_FLAGS = -L $(LIBFT_PATH) -lft
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 CC = gcc
-
-AR = ar rcs
 
 SRC = check_map.c \
 	image.c \
@@ -82,4 +80,4 @@ re: fclean all
 
 re_bonus: fclean bonus
 
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean re bonus re_bonus

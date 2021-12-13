@@ -19,6 +19,7 @@ LIBFT_PATH = libft
 LIBFT_FLAGS = -L $(LIBFT_PATH) -lft
 
 CFLAGS = -Wall -Wextra -Werror
+MLXF = -lmlx -Ilmlx -lXext -lX11
 
 CC = gcc
 
@@ -50,18 +51,18 @@ OBJS_BONUS = $(SRC_BONUS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDES) $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(INCLUDES) $(LIBFT_FLAGS) $(MLXF)
 
 %.o:$(SRC_DIR)%.c
-		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
+		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) $(MLXF)
 
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(LIBFT) $(OBJS_BONUS)
-		$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(INCLUDES) $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
+		$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(INCLUDES) $(LIBFT_FLAGS) $(MLXF)
 
 %.o:$(SRC_DIR_BONUS)%.c
-		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) -lmlx -Ilmlx -lXext -lX11
+		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBFT_FLAGS) $(MLXF)
 
 $(LIBFT):
 		make -C $(LIBFT_PATH)

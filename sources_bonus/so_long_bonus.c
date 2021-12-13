@@ -12,7 +12,7 @@
 
 #include "../includes/so_long_bonus.h"
 
-static void	init_function(t_game *game)
+static void	init_var(t_game *game)
 {
 	game->p_x = 0;
 	game->p_y = 0;
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 		printf("Error\nYou must use a '.ber' file.\n\n");
 		exit(2);
 	}
-	init_function(&game);
+	init_var(&game);
 	open_map(argv[1], &game);
 	valid_matrix(&game);
 	valid_map(&game);

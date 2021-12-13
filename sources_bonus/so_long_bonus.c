@@ -23,7 +23,7 @@ static void	init_var(t_game *game)
 	game->col = 0;
 	game->end_game = 0;
 	game->side = KEY_D;
-	game->move = 1;
+	game->move = 0;
 }
 
 void	start_win(t_game *game)

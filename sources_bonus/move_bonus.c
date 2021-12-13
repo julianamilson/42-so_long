@@ -14,6 +14,12 @@
 
 int	end_game(t_game *game)
 {
+	char	*move;
+
+	move = ft_itoa(game->move++);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 20, 10, 0xF0F8FF,
+		"Movements: ");
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 100, 10, 0xF0F8FF, move);
 	if (game->end_game == 1)
 		printf("\n\nYOU WIN!!\nIt was fun! Welcome back home!! ~(n v n )~\n\n");
 	if (game->end_game == -1)
@@ -22,6 +28,7 @@ int	end_game(t_game *game)
 		game->end_game = 1;
 	}
 	game->map[game->p_x][game->p_y] = '0';
+	free(move);
 	return (-1);
 }
 

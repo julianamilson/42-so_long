@@ -47,8 +47,8 @@ int	main(int argc, char **argv)
 	}
 	init_var(&game);
 	open_map(argv[1], &game);
-	valid_map(&game);
 	valid_matrix(&game);
+	valid_map(&game);
 	game.mlx_ptr = mlx_init();
 	start_win(&game);
 	start_img(&game);

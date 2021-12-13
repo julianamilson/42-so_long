@@ -22,6 +22,7 @@ static int	valid_move(t_game *game, int col, int line, int pressed_key)
 	{
 		game->end_game = 1;
 		game->map[game->p_x][game->p_y] = '0';
+		printf("Movements: %d\n", game->move++);
 		printf("\n\nYOU WIN!!\nIt was fun! Welcome back home!! ~(n v n )~\n\n");
 		return (-1);
 	}

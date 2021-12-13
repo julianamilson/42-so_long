@@ -16,9 +16,7 @@
 # include "../lib/libft/libft.h"
 # include <mlx.h>
 # include <unistd.h>
-# include <string.h>
 # include <stdio.h>
-# include <errno.h>
 # include <fcntl.h>
 # include <stdlib.h>
 

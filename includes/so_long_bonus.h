@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/14 05:01:56 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 14:13:44 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include "../libft/libft.h"
 # include <mlx.h>
-# include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <stdlib.h>
 
 # define IMG_PL "./assets/img/bunny.xpm"
 # define IMG_PR "./assets/img/bunny1.xpm"

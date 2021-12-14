@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   image_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:15:09 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/10 01:32:50 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 05:07:33 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@ int	free_img(t_game *game)
 {
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_loop_end(game->mlx_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->img.i_carrot);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_heart);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_exit);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_floor);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_pl);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_pr);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_v);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_vw);
 	mlx_destroy_image(game->mlx_ptr, game->img.i_wall);
+	mlx_destroy_image(game->mlx_ptr, game->img.i_home);
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free_matrix(game);
@@ -41,11 +43,15 @@ void	start_img(t_game *game)
 			&game->img.height, &game->img.width);
 	game->img.i_v = mlx_xpm_file_to_image(game->mlx_ptr, IMG_V,
 			&game->img.height, &game->img.width);
+	game->img.i_vw = mlx_xpm_file_to_image(game->mlx_ptr, IMG_VW,
+			&game->img.height, &game->img.width);
 	game->img.i_floor = mlx_xpm_file_to_image(game->mlx_ptr, IMG_S,
 			&game->img.height, &game->img.width);
 	game->img.i_exit = mlx_xpm_file_to_image(game->mlx_ptr, IMG_E,
 			&game->img.height, &game->img.width);
-	game->img.i_carrot = mlx_xpm_file_to_image(game->mlx_ptr, IMG_C,
+	game->img.i_heart = mlx_xpm_file_to_image(game->mlx_ptr, IMG_C,
+			&game->img.height, &game->img.width);
+	game->img.i_home = mlx_xpm_file_to_image(game->mlx_ptr, IMG_H,
 			&game->img.height, &game->img.width);
 }
 
@@ -74,10 +80,16 @@ static void	verify_char(int line, int col, char c, t_game *game)
 			game->img.i_exit, col * 32, line * 32);
 	if (c == 'C')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
-			game->img.i_carrot, col * 32, line * 32);
+			game->img.i_heart, col * 32, line * 32);
 	if (c == 'V')
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->img.i_v, col * 32, line * 32);
+	if (c == 'L')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_vw, col * 32, line * 32);
+	if (c == 'H')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->img.i_home, col * 32, line * 32);
 }
 
 int	render_img(t_game *game)

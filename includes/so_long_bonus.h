@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/13 16:19:15 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 05:01:56 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@
 
 # define IMG_PL "./assets/img/bunny.xpm"
 # define IMG_PR "./assets/img/bunny1.xpm"
-# define IMG_C "./assets/img/carrot.xpm"
+# define IMG_C "./assets/img/heart.xpm"
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
 # define IMG_V "./assets/img/v.xpm"
+# define IMG_VW "./assets/img/vw.xpm"
+# define IMG_H "./assets/img/home.xpm"
 
 # define KEY_W 'w'
 # define KEY_A 'a'
@@ -36,13 +38,15 @@
 
 typedef struct s_img
 {
-	void	*i_carrot;
+	void	*i_heart;
 	void	*i_pr;
 	void	*i_pl;
 	void	*i_floor;
 	void	*i_wall;
 	void	*i_exit;
 	void	*i_v;
+	void	*i_vw;
+	void	*i_home;
 	int		height;
 	int		width;
 }	t_img;

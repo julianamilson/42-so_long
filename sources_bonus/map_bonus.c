@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 21:07:44 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/10 02:28:19 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 04:56:39 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	open_map(char *argv, t_game *game)
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 	{
-		printf("Error\nThis file doesn't exists.\n\n");
+		printf("Error\nThis file does not exist.\n\n");
 		exit(4);
 	}
 	temp = ft_strdup("");

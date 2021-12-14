@@ -6,7 +6,7 @@
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:01:47 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/13 16:19:31 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 05:02:39 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 
 # define IMG_P "./assets/img/bunny1.xpm"
-# define IMG_C "./assets/img/carrot.xpm"
+# define IMG_C "./assets/img/heart.xpm"
 # define IMG_E "./assets/img/exit.xpm"
 # define IMG_S "./assets/img/grass.xpm"
 # define IMG_W "./assets/img/wall.xpm"
@@ -34,7 +34,7 @@
 
 typedef struct s_img
 {
-	void	*i_carrot;
+	void	*i_heart;
 	void	*i_player;
 	void	*i_floor;
 	void	*i_wall;

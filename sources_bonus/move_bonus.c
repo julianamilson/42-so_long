@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmilson- <jmilson-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:16:25 by jmilson-          #+#    #+#             */
-/*   Updated: 2021/12/09 21:24:05 by jmilson-         ###   ########.fr       */
+/*   Updated: 2021/12/14 00:42:15 by jmilson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	valid_move(t_game *game, int col, int line, int pressed_key)
 		game->score--;
 	if (game->map[line][col] == 'E' && game->score == 0)
 	{
+		game->map[line][col] = 'H';
 		game->end_game = 1;
 		return (end_game(game));
 	}
@@ -47,6 +48,7 @@ static int	valid_move(t_game *game, int col, int line, int pressed_key)
 		return (-1);
 	if (game->map[line][col] == 'V')
 	{
+		game->map[line][col] = 'L';
 		game->end_game = -1;
 		return (end_game(game));
 	}

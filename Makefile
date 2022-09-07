@@ -75,7 +75,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
-	make fclean -C $(LIBFT_PATH)
 
 re: fclean all
 

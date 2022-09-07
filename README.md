@@ -39,13 +39,16 @@ There's more maps to try on `assets/maps`, but if you want to, make your own map
 
 ### Commands
 
-Walk:
+#### Movements:
 
 Press `a` to go to the `left`
+
 Press `w` to go `up`
+
 Press `s` to go `down`
+
 Press `d` to go to the `right`
 
-Exit the game:
+#### Exit the game:
 
 Press `ESC` or the exit button
